@@ -5,5 +5,4 @@ open module tp.tests {
     exports dev.craftlr.exercice3;
     exports dev.craftlr.exercice4;
     exports dev.craftlr.exercice5;
-    exports dev.craftlr.exercice6;
 }
