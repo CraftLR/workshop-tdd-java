@@ -29,7 +29,6 @@ GitHub va vous créer un dépôt contenant un fork de ce dépôt. Vous apparaît
 
 Pour faire l'atelier, il faut disposer d'une JVM et de préférence à jour. Pour en télécharger une, vous pouvez utiliser les commandes suivantes : 
 
-
 ```sh
 cd
 curl -s "https://get.sdkman.io" | bash

@@ -5,24 +5,28 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-			"JDK_VERSION":"17.0.2.fx-zulu",
+			"JDK_VERSION":"19.0.1.fx-zulu",
 			"INSTALL_MAVEN": "true",
-			"MAVEN_VERSION": "3.8.5",
-			"INSTALL_GRADLE": "false",
+			"MAVEN_VERSION": "3.8.6",
+			"INSTALL_GRADLE": "false"
 		}
 	},
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
-		"java.jdt.ls.java.home": "/home/gitpod/.sdkman/candidates/java/current",
-		"maven.executable.path": "/home/gitpod/.sdkman/candidates/maven/current/bin/mvn",
+		"java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
+		"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn",
 		"terminal.integrated.profiles.linux": {
 			"zsh": {
-				"path": "zsh",
+				"path": "zsh"
 			}
 		},
 		"terminal.integrated.defaultProfile.linux": "zsh"
 	},
+	"mounts": [
+		"source=extensions,target=/root/.vscode-server/extensions,type=volume",
+		"source=m2,target=/root/.m2,type=volume"	
+	],
 	
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
@@ -35,6 +39,9 @@
 		"redhat.java",
 		"redhat.vscode-xml",
 		"redhat.fabric8-analytics",
+		"visualstudioexptteam.vscodeintellicode",
+		"ms-azuretools.vscode-docker",
+		"eamodio.gitlens"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -43,8 +50,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "java -version",
 
-	"containerUser": "gitpod",
 	
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "gitpod"
+	"remoteUser": "vscode"
 }
