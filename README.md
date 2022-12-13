@@ -1,6 +1,6 @@
 # <img src="https://raw.githubusercontent.com/CraftLR/workshop-git/main/src/main/resources/assets/logo.png" alt="class logo" class="logo"/> 
 
-## La Rochelle Software Craftmenship
+## La Rochelle Software Craftsmenship
 * **Auteurs:** 
     * [Sébastien NEDJAR](mailto:sebastien.nedjar@univ-amu.fr)
 * **Besoin d'aide ?**
