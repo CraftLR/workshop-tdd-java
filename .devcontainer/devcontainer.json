@@ -23,7 +23,6 @@
 		},
 		"ghcr.io/devcontainers/features/node:1": {}
 	},
-	"workspaceFolder": "/home/vscode/code",
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
