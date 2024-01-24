@@ -15,68 +15,48 @@ L'objectif premier de cet atelier est de vous familiariser avec tous les nouveau
 
 ### Création de votre fork
 
-Vous connaissez déjà les bases de Git. Si ce n'est pas le cas, il vous faudra réaliser l'atelier [Git](https://github.com/CraftLR/workshop-git).
+En théorie, vous devriez majoritairement déjà connaitre les bases de Git. Si ce n'est pas le cas, il faudra faire l'atelier [Git](https://github.com/CraftLR/workshop-git).
 
-Cela sera indispensable pour commencer à travailler et garder trace de vos réalisation. Comme vous allez le découvrir le suivi de votre travail passe directement par GitHub grace à l'intégration continue.
+Cela sera indispensable pour commencer à travailler et garder trace de vos réalisations. Comme vous allez le découvrir le suivi de votre travail passe directement par GitHub.
 
-La première chose à faire est de créer un fork de ce dépôt. Pour ce faire, rendez-vous sur le lien suivant :
+La première chose à faire est de créer un fork de ce dépôt pour pouvoir travailler. Pour ce faire, rendez-vous sur le lien suivant :
 
-[https://classroom.github.com/a/-E2YywoT](https://classroom.github.com/a/-E2YywoT)
+<https://classroom.github.com/a/89TOXYi_>
 
 GitHub va vous créer un dépôt contenant un fork de ce dépôt. Vous apparaîtrez automatiquement comme contributeur de ce projet pour y pousser votre travail.
 
 ### Découverte et prise en main de l'IDE
 
-Pour faire l'atelier, il faut disposer d'une JVM et de préférence à jour. Pour en télécharger une, vous pouvez utiliser les commandes suivantes : 
+Pour faire l'atelier, il faut disposer d'une JVM et d'un JDK à jour. Pour en installer, vous pouvez utiliser les commandes suivantes : 
 
 ```sh
 cd
 curl -s "https://get.sdkman.io" | bash
-source "/home/snedjar/.sdkman/bin/sdkman-init.sh"
-sdk install java sdk install java 19.0.1.fx-zulu
+source ~/.sdkman/bin/sdkman-init.sh
+sdk install java 21.0.1.fx-zulu
 ```
 
 Pour vérifier que vous avez bien la bonne version de Java configurée, vous pouvez exécuter la commande `java -version` qui doit vous afficher la sortie suivante :
 
 ```sh
 ~$ java -version
-openjdk version "19.0.1" 2022-10-18
-OpenJDK Runtime Environment Zulu19.30+11-CA (build 19.0.1+10)
-OpenJDK 64-Bit Server VM Zulu19.30+11-CA (build 19.0.1+10, mixed mode, sharing)
+openjdk version "21.0.1" 2023-10-17 LTS
+OpenJDK Runtime Environment Zulu21.30+15-CA (build 21.0.1+12-LTS)
+OpenJDK 64-Bit Server VM Zulu21.30+15-CA (build 21.0.1+12-LTS, mixed mode, sharing)
 ~$ 
 ```
 
-Avant de commencer l'atelier à proprement parler, lisez la page ["Découverte et prise en main de l'IDE"](/decouverte_et_prise_en_main_IDE.md).
+Avant de commencer l'atelier à proprement parler, vous pouvez lire la page ["Découverte et prise en main de l'IDE"](/decouverte_et_prise_en_main_IDE.md).
 
 Pour indiquer à IntelliJ d'utiliser ce JDK, suivez ce guide :
 
 <https://www.jetbrains.com/help/idea/sdk.html#define-sdk>
 
-#### Configurer Gitpod
-
-En cas de travail depuis une machine sur laquelle vous ne pouvez pas installer tous les outils, vous pouvez pour cet atelier utiliser le service Gitpod :
-
-[![Open In Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/CraftLR/workshop-tdd)
-
-Pour disposer de Gitpod sur tous vos projets hébergés sur Github, suivez les étapes suivantes :
-
-* Créez un compte Gitpod en vous rendant sur la page [Get started](https://www.gitpod.io/#get-started). Identifiez-vous avec votre compte github en cliquant sur le bouton "Continue with Github". Si vous avez le pack [Github Education](https://education.github.com/pack), vous pouvez bénéficier de l'offre 100h/mois. N'oubliez pas d'en faire la demande dans les [réglages de votre compte Gitpod](https://gitpod.io/plans).
-
-* Installez l'[application Gitpod](https://github.com/apps/gitpod-io/installations/new). L'application GitHub de Gitpod est similaire à un serveur CI et préparera en permanence des pré-constructions pour toutes vos branches et demandes d'extraction - vous n'avez donc pas à attendre que Maven ou NPM télécharge Internet lorsque vous souhaitez commencer à travailler.
-
-* Démarrez votre premier espace de travail avec une préconstruction en préfixant l'URL du référentiel par [https://gitpod.io#prebuild/](https://gitpod.io#prebuild/). Gitpod affiche l'état d'avancement de la pré-construction en exécutant les commandes `init` du fichier `.gitpod.yml` avant de démarrer un espace de travail. Plus tard, lorsque vous créez un nouvel espace de travail sur une branche, ou une Pull Request, l'espace de travail se charge beaucoup plus rapidement, car toutes les dépendances sont déjà téléchargées et le code est compilé.
-
-* Installez de l'extension navigateur Gitpod sur tous les navigateurs basés sur [Chromium](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki) (tels que Microsoft Edge, Brave, Chrome, ...) ou sur [Firefox](https://addons.mozilla.org/fr/firefox/addon/gitpod/). L'extension ajoute simplement un bouton Gitpod sur chaque projet et branche sur GitHub, et Bitbucket qui préfixe l'URL avec [http://gitpod.io/#](http://gitpod.io/#) afin que vous puissiez facilement ouvrir un nouvel espace de travail à partir de n'importe quel contexte Git.
-
-* Personnalisez le thème par défaut en ouvrant le panneau de commande (avec le raccourci clavier `Ctrl+Shift+P`) et en sélectionnant `Preferences: Color Theme`. Si vous préférez par exemple les couleur sombre pour reposer vos yeux, le thème *gitpod dark* devrait vous convenir. Vous pouvez rajouter de nouveaux thème directement en recherchant dans les extensions (avec le raccourci clavier `Ctrl+Shift+X`).
-
-Vous pouvez maintenant commencer à traiter les environnements de développement comme des ressources automatisées que vous lancez lorsque vous en avez besoin et fermez (et oubliez) lorsque vous avez terminé votre tâche. Les environnements de développement deviennent totalement éphémères. Attention avec l'offre Github éducation vous ne disposez que de 100h mensuels, donc il faut penser à fermer vos espaces de travail quand vous avez terminé de vous en servir (dans tous les cas ils seront fermés automatiquement après 30 minutes d'inactivité).
-
 ### Mode opératoire (Workflow)
 
 Maintenant que vous savez utiliser Git en ligne de commande, que vous avez forké avec le lien classroom et importé le dépôt dans votre IDE, vous êtes en capacité de travailler sur les exercices ci-après.
 
-Cet atelier est conçu pour vous faire découvrir les tests unitaires et le **Test Driven Development (TDD)**, c'est à dire le développement conduit par les tests.
+Cet atelier est conçu pour vous faire découvrir les tests unitaires et commencer à vous sensibiliser au **Test Driven Development (TDD)**, c'est à dire le développement conduit par les tests.
 
 Le TDD est une méthode de conception émergente selon laquelle la conception apparaît au fur et à mesure du développement en encourageant une meilleure compréhension du problème **en commençant à écrire les tests avant le code applicatif**. Pour le développeur, les tests vont constituer une spécification technique exécutable et vérifiable à tout moment. Ainsi en rajoutant des tests, le développeur converge progressivement à la fois vers une spécification plus fine et un code fonctionnel associé.
 
@@ -155,7 +135,7 @@ Pour continuer à travailler, une fois que vous avez fusionné la PR, vous devez
 ~/.../workshop-tdd-VotreUsername (main)$ git pull origin main
 ```
 
-Après ces commandes, votre branche `main` locale sera enrichie des commits de votre dernière PR qui vient d'être mergée.
+Après ces commandes, votre branche `main` locale sera enrichie des commits de votre dernière PR qui vient d'être fusionnée.
 
 ### Exercice 2 : Fizz Buzz
 

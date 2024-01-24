@@ -1,56 +1,60 @@
-// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.195.0/containers/java
 {
 	"name": "Java",
 	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"JDK_VERSION":"19.0.1.fx-zulu",
-			"INSTALL_MAVEN": "true",
-			"MAVEN_VERSION": "3.8.6",
-			"INSTALL_GRADLE": "false"
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"installOhMyZsh": true,
+			"upgradePackages": true,
+			"username": "vscode",
+			"uid": "1000",
+			"gid": "1000"
+		},
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "21.0.1.fx-zulu",
+			"installMaven": "true",
+			"mavenVersion": "3.8.6",
+			"installGradle": "false"
+		},
+		"ghcr.io/devcontainers/features/node:1": {}
+	},
+	"workspaceFolder": "/home/vscode/code",
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {
+				"java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
+				"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn",
+				"terminal.integrated.profiles.linux": {
+					"zsh": {
+						"path": "zsh"
+					}
+				},
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"editor.formatOnSave": true,
+				"editor.formatOnType": true,
+				"redhat.telemetry.enabled": false
+			},
+			"mounts": [
+				"source=extensions,target=/root/.vscode-server/extensions,type=volume",
+				"source=m2,target=/root/.m2,type=volume"
+			],
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"redhat.vscode-commons",
+				"redhat.vscode-xml",
+				"redhat.fabric8-analytics",
+				"eamodio.gitlens",
+				"shengchen.vscode-checkstyle"
+			]
 		}
 	},
-
-	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
-		"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn",
-		"terminal.integrated.profiles.linux": {
-			"zsh": {
-				"path": "zsh"
-			}
-		},
-		"terminal.integrated.defaultProfile.linux": "zsh"
-	},
-	"mounts": [
-		"source=extensions,target=/root/.vscode-server/extensions,type=volume",
-		"source=m2,target=/root/.m2,type=volume"	
-	],
-	
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"vscjava.vscode-maven",
-		"vscjava.vscode-java-dependency",
-		"vscjava.vscode-java-debug",
-		"vscjava.vscode-java-test",
-		"vscjava.vscode-java-pack",
-		"redhat.vscode-commons",
-		"redhat.java",
-		"redhat.vscode-xml",
-		"redhat.fabric8-analytics",
-		"visualstudioexptteam.vscodeintellicode",
-		"ms-azuretools.vscode-docker",
-		"eamodio.gitlens"
-	],
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "java -version",
-
-	
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"
 }

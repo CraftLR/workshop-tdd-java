@@ -5,11 +5,6 @@ import static dev.craftlr.exercice4.Movement.*;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import dev.craftlr.exercice4.Movement;
-import dev.craftlr.exercice4.Orientation;
-import dev.craftlr.exercice4.Robot;
-import dev.craftlr.exercice4.RobotSimulator;
-
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -76,7 +71,7 @@ public final class RobotTest {
         final Robot robot = new Robot(new GridPosition(0, 0), Orientation.WEST);
         robot.turnRight();
         final Orientation expectedOrientation = Orientation.NORTH;
-        assertEquals(expectedOrientation ,robot.getOrientation());
+        assertEquals(expectedOrientation, robot.getOrientation());
     }
 
     @Disabled
@@ -223,7 +218,7 @@ public final class RobotTest {
         List<Movement> movements = simulator.getMovements();
         assertThat(movements).containsSequence(LEFT, ADVANCE, ADVANCE, RIGHT, ADVANCE, LEFT, ADVANCE);
     }
-    
+
     @Disabled
     @Test
     public void testListInstructionsToMoveWestAndNorthTer() {
